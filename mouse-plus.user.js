@@ -52,7 +52,7 @@
     ['LDR', { label: '打开刚才关闭的网页', action: (point) => openRecentlyClosedPage(point) }],
     ['LR', { label: '重新打开当前页', action: () => window.location.reload() }],
     ['RL', { label: '停止加载', action: () => window.stop() }],
-    ['DR', { label: '关闭当前标签页', action: (point) => closeCurrentTab(point) }],
+    ['DR', { label: '跳转空白页', action: () => openBlankPage() }],
     ['DL', { label: '最小化滚动到左侧', action: () => window.scrollTo({ left: 0, behavior: 'smooth' }) }],
     ['RD', { label: '向下翻页', action: () => window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' }) }],
     ['RU', { label: '向上翻页', action: () => window.scrollBy({ top: -window.innerHeight * 0.9, behavior: 'smooth' }) }],
@@ -160,24 +160,8 @@
     gmOpenInTab(recentPage.url);
   }
 
-  function closeCurrentTab(point = { x: 20, y: 20 }) {
-    storeCurrentPage();
-    window.close();
-
-    window.setTimeout(() => {
-      try {
-        window.open('', '_self');
-        window.close();
-      } catch (error) {
-        // Browser close restrictions are expected for ordinary user-opened tabs.
-      }
-
-      window.setTimeout(() => {
-        if (!document.hidden) {
-          showHint('浏览器阻止关闭当前标签页', point.x, point.y, 'error');
-        }
-      }, 120);
-    }, 0);
+  function openBlankPage() {
+    window.location.href = 'about:blank';
   }
 
   function runGestureAction(gesture, point) {
