@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         Mouse Plus
+// @name:zh-CN  Mouse Plus 鼠标手势
 // @namespace    https://github.com/maya1900/mouse-plus
 // @version      1.0.0
-// @description  Right-button mouse gestures for basic webpage navigation.
+// @description  Ctrl + right-click mouse gestures for basic webpage navigation.
+// @description:zh-CN  使用 Ctrl + 右键鼠标手势执行网页后退、前进、刷新、滚动等基础操作。
 // @author       mayang
 // @match        *://*/*
 // @homepageURL  https://github.com/maya1900/mouse-plus
@@ -10,6 +12,9 @@
 // @updateURL    https://raw.githubusercontent.com/maya1900/mouse-plus/main/mouse-plus.user.js
 // @downloadURL  https://raw.githubusercontent.com/maya1900/mouse-plus/main/mouse-plus.user.js
 // @license      MIT
+// @compatible   chrome
+// @compatible   edge
+// @compatible   firefox
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_openInTab
